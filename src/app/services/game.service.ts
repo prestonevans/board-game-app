@@ -14,9 +14,14 @@ export class GameService {
   searchByName(searchText: string): Observable<Game[]> {
     const alteredText = searchText.replace(/\s/g, '+');
     return this.http
-    .get<Game[]>(`${this.url}${alteredText}&client_id=${environment.boardgameAPI}`)
-    .pipe(
+      .get<Game[]>(`${this.url}${alteredText}&client_id=${environment.boardgameAPI}`)
+      .pipe(
         map(response => response['games'])
-    )
-};
+      )
+  };
+  getById(gameId: string): Observable<Game> {
+    return this.http.get<Game>(`https://api.boardgameatlas.com/api/search?ids=${gameId}&client_id=${environment.boardgameAPI}`).pipe(
+      map(response => response['games'])
+    );
+  }
 }
