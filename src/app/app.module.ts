@@ -9,7 +9,7 @@ import { GameSearchComponent } from './components/game-search/game-search.compon
 import { GameDetailsComponent } from './components/game-details/game-details.component';
 import { GameDetailControlsComponent } from './components/game-detail-controls/game-detail-controls.component';
 import { UserSelectionsComponent } from './components/user-selections/user-selections.component';
-
+import { MaterialModule } from './modules/material.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +22,8 @@ import { UserSelectionsComponent } from './components/user-selections/user-selec
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
